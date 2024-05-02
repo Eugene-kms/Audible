@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Audible View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AudibleViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdw-xw-G0M">
+                                <rect key="frame" x="160" y="71" width="73" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tin-qr-keO">
+                                <rect key="frame" x="36" y="162" width="156" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Dopamine Nation">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dopamineNationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlS-eX-q5r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E8-Sl-GJF">
+                                <rect key="frame" x="36" y="205" width="136" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start with Why">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startWithWhyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L1v-Be-L0e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihq-RZ-dDi">
+                                <rect key="frame" x="36" y="119" width="135" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Why We Sleep">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="whyWeSleepTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jak-Cb-vuy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ihq-RZ-dDi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="Bad-nj-TtA"/>
+                            <constraint firstItem="pdw-xw-G0M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N4S-CX-ZFC"/>
+                            <constraint firstItem="5E8-Sl-GJF" firstAttribute="top" secondItem="tin-qr-keO" secondAttribute="bottom" constant="8" symbolic="YES" id="QMr-la-MlZ"/>
+                            <constraint firstItem="pdw-xw-G0M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="SAq-YE-304"/>
+                            <constraint firstItem="tin-qr-keO" firstAttribute="top" secondItem="Ihq-RZ-dDi" secondAttribute="bottom" constant="8" symbolic="YES" id="VNB-gh-vhl"/>
+                            <constraint firstItem="5E8-Sl-GJF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="cLr-0L-Mb4"/>
+                            <constraint firstItem="Ihq-RZ-dDi" firstAttribute="top" secondItem="pdw-xw-G0M" secondAttribute="bottom" constant="30" id="dkB-nA-nfp"/>
+                            <constraint firstItem="tin-qr-keO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="fZC-3Y-i4w"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="-2"/>
+        </scene>
+        <!--Book View Controller-->
+        <scene sceneID="EBm-af-c4v">
+            <objects>
+                <viewController storyboardIdentifier="BookViewController" id="Vqm-aD-txA" customClass="BookViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uby-q5-yky">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-uG-3fG">
+                                <rect key="frame" x="16" y="59" width="44" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPB-0I-A4W">
+                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="LRS-mT-5i6"/>
+                                            <constraint firstAttribute="width" constant="28" id="ULU-Z4-Zm2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="exit"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="Vqm-aD-txA" eventType="touchUpInside" id="CAu-Sl-CDD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="centerY" secondItem="YGr-uG-3fG" secondAttribute="centerY" id="142-SL-Jni"/>
+                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="centerX" secondItem="YGr-uG-3fG" secondAttribute="centerX" id="G0w-RC-Mjw"/>
+                                    <constraint firstAttribute="height" constant="44" id="SnD-Oa-wLa"/>
+                                    <constraint firstAttribute="width" constant="44" id="xDl-vn-SRe"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whyWeSleep" translatesAutoresizingMaskIntoConstraints="NO" id="Cy6-CM-plf">
+                                <rect key="frame" x="89" y="113" width="215" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="0si-7k-S0x"/>
+                                    <constraint firstAttribute="height" constant="215" id="5SR-og-lhD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why We Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnV-74-0hg">
+                                <rect key="frame" x="133.66666666666666" y="344" width="125.66666666666666" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlocking the Power of Sleep  and Dreams" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aae-W4-rMN">
+                                <rect key="frame" x="50" y="377" width="293" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O13-22-30W">
+                                <rect key="frame" x="20" y="452" width="353" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sWY-aE-xZr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.9137254901960784" green="0.96470588235294119" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="playButton:" destination="Vqm-aD-txA" eventType="touchUpInside" id="A4Q-4W-rPN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M2u-pL-ACB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O13-22-30W" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="2hv-En-ylH"/>
+                            <constraint firstItem="Aae-W4-rMN" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="3pc-Pd-u1z"/>
+                            <constraint firstItem="Cy6-CM-plf" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="58W-xz-WD2"/>
+                            <constraint firstItem="TnV-74-0hg" firstAttribute="top" secondItem="Cy6-CM-plf" secondAttribute="bottom" constant="16" id="9f8-G3-rlN"/>
+                            <constraint firstItem="O13-22-30W" firstAttribute="top" secondItem="Aae-W4-rMN" secondAttribute="bottom" constant="32" id="Elj-X5-X3S"/>
+                            <constraint firstItem="YGr-uG-3fG" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" id="WaP-Vr-pg6"/>
+                            <constraint firstItem="Aae-W4-rMN" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="50" id="X25-0I-9NX"/>
+                            <constraint firstItem="O13-22-30W" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="20" id="YU7-W8-nhf"/>
+                            <constraint firstItem="Aae-W4-rMN" firstAttribute="top" secondItem="TnV-74-0hg" secondAttribute="bottom" constant="12" id="bSI-zW-o5L"/>
+                            <constraint firstItem="M2u-pL-ACB" firstAttribute="trailing" secondItem="O13-22-30W" secondAttribute="trailing" constant="20" id="bX3-vP-fTi"/>
+                            <constraint firstItem="TnV-74-0hg" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="ciE-43-zuX"/>
+                            <constraint firstItem="Cy6-CM-plf" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" constant="54" id="f8A-Kr-zNY"/>
+                            <constraint firstItem="YGr-uG-3fG" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="16" id="fNj-qt-Ymy"/>
+                            <constraint firstItem="M2u-pL-ACB" firstAttribute="trailing" secondItem="Aae-W4-rMN" secondAttribute="trailing" constant="50" id="nnw-Kh-3Ad"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="iconImageView" destination="Cy6-CM-plf" id="f6e-yu-Sbm"/>
+                        <outlet property="subTitleLbl" destination="Aae-W4-rMN" id="m8q-0N-fkz"/>
+                        <outlet property="titleLbl" destination="TnV-74-0hg" id="L05-eK-UFr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWX-uc-LQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881.67938931297704" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="exit" width="28" height="28"/>
+        <image name="whyWeSleep" width="215" height="215"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
