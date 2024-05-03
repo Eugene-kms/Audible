@@ -12,8 +12,12 @@
 		444146AF2BE37A8900CD0C71 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 444146AE2BE37A8900CD0C71 /* Base */; };
 		444146B12BE37A8D00CD0C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444146B02BE37A8D00CD0C71 /* Assets.xcassets */; };
 		444146B42BE37A8D00CD0C71 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 444146B32BE37A8D00CD0C71 /* Base */; };
-		444146BC2BE37CC900CD0C71 /* AudibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146BB2BE37CC900CD0C71 /* AudibleViewController.swift */; };
+		444146BC2BE37CC900CD0C71 /* MyBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */; };
 		444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146BD2BE37F6600CD0C71 /* BookViewController.swift */; };
+		444146C72BE4E34600CD0C71 /* MyBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146C52BE4E34600CD0C71 /* MyBookCell.swift */; };
+		444146C82BE4E34600CD0C71 /* MyBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146C62BE4E34600CD0C71 /* MyBookCell.xib */; };
+		444146D12BE4FDA200CD0C71 /* MyBookReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */; };
+		444146D22BE4FDA200CD0C71 /* MyBookReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +28,12 @@
 		444146B02BE37A8D00CD0C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		444146B32BE37A8D00CD0C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		444146B52BE37A8D00CD0C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		444146BB2BE37CC900CD0C71 /* AudibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleViewController.swift; sourceTree = "<group>"; };
+		444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewController.swift; sourceTree = "<group>"; };
 		444146BD2BE37F6600CD0C71 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		444146C52BE4E34600CD0C71 /* MyBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookCell.swift; sourceTree = "<group>"; };
+		444146C62BE4E34600CD0C71 /* MyBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBookCell.xib; sourceTree = "<group>"; };
+		444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookReviewCell.swift; sourceTree = "<group>"; };
+		444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBookReviewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,36 @@
 		444146A62BE37A8900CD0C71 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				444146CE2BE4FD8200CD0C71 /* MyBookReviewCell */,
+				444146C42BE4E30300CD0C71 /* MyBookCell */,
 				444146A72BE37A8900CD0C71 /* AppDelegate.swift */,
 				444146A92BE37A8900CD0C71 /* SceneDelegate.swift */,
 				444146AD2BE37A8900CD0C71 /* Main.storyboard */,
 				444146B02BE37A8D00CD0C71 /* Assets.xcassets */,
 				444146B22BE37A8D00CD0C71 /* LaunchScreen.storyboard */,
 				444146B52BE37A8D00CD0C71 /* Info.plist */,
-				444146BB2BE37CC900CD0C71 /* AudibleViewController.swift */,
+				444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */,
 				444146BD2BE37F6600CD0C71 /* BookViewController.swift */,
 			);
 			path = Audible;
+			sourceTree = "<group>";
+		};
+		444146C42BE4E30300CD0C71 /* MyBookCell */ = {
+			isa = PBXGroup;
+			children = (
+				444146C52BE4E34600CD0C71 /* MyBookCell.swift */,
+				444146C62BE4E34600CD0C71 /* MyBookCell.xib */,
+			);
+			path = MyBookCell;
+			sourceTree = "<group>";
+		};
+		444146CE2BE4FD8200CD0C71 /* MyBookReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */,
+				444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */,
+			);
+			path = MyBookReviewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +156,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444146D22BE4FDA200CD0C71 /* MyBookReviewCell.xib in Resources */,
+				444146C82BE4E34600CD0C71 /* MyBookCell.xib in Resources */,
 				444146B12BE37A8D00CD0C71 /* Assets.xcassets in Resources */,
 				444146B42BE37A8D00CD0C71 /* Base in Resources */,
 				444146AF2BE37A8900CD0C71 /* Base in Resources */,
@@ -143,8 +173,10 @@
 			files = (
 				444146A82BE37A8900CD0C71 /* AppDelegate.swift in Sources */,
 				444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */,
+				444146D12BE4FDA200CD0C71 /* MyBookReviewCell.swift in Sources */,
+				444146C72BE4E34600CD0C71 /* MyBookCell.swift in Sources */,
 				444146AA2BE37A8900CD0C71 /* SceneDelegate.swift in Sources */,
-				444146BC2BE37CC900CD0C71 /* AudibleViewController.swift in Sources */,
+				444146BC2BE37CC900CD0C71 /* MyBooksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

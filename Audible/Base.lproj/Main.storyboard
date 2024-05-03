@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Audible View Controller-->
+        <!--My Books View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AudibleViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MyBooksViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,65 +22,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tin-qr-keO">
-                                <rect key="frame" x="36" y="162" width="156" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Dopamine Nation">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="dopamineNationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlS-eX-q5r"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E8-Sl-GJF">
-                                <rect key="frame" x="36" y="205" width="136" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start with Why">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="startWithWhyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L1v-Be-L0e"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihq-RZ-dDi">
-                                <rect key="frame" x="36" y="119" width="135" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Why We Sleep">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="whyWeSleepTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jak-Cb-vuy"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CuY-LS-1f7">
+                                <rect key="frame" x="0.0" y="109" width="393" height="743"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ihq-RZ-dDi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="Bad-nj-TtA"/>
+                            <constraint firstItem="CuY-LS-1f7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6uZ-jc-maL"/>
+                            <constraint firstItem="CuY-LS-1f7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AXl-0t-8zZ"/>
                             <constraint firstItem="pdw-xw-G0M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N4S-CX-ZFC"/>
-                            <constraint firstItem="5E8-Sl-GJF" firstAttribute="top" secondItem="tin-qr-keO" secondAttribute="bottom" constant="8" symbolic="YES" id="QMr-la-MlZ"/>
+                            <constraint firstItem="CuY-LS-1f7" firstAttribute="top" secondItem="pdw-xw-G0M" secondAttribute="bottom" constant="20" id="QBB-Qz-iSK"/>
                             <constraint firstItem="pdw-xw-G0M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="SAq-YE-304"/>
-                            <constraint firstItem="tin-qr-keO" firstAttribute="top" secondItem="Ihq-RZ-dDi" secondAttribute="bottom" constant="8" symbolic="YES" id="VNB-gh-vhl"/>
-                            <constraint firstItem="5E8-Sl-GJF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="cLr-0L-Mb4"/>
-                            <constraint firstItem="Ihq-RZ-dDi" firstAttribute="top" secondItem="pdw-xw-G0M" secondAttribute="bottom" constant="30" id="dkB-nA-nfp"/>
-                            <constraint firstItem="tin-qr-keO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="fZC-3Y-i4w"/>
+                            <constraint firstAttribute="bottom" secondItem="CuY-LS-1f7" secondAttribute="bottom" id="doz-wY-jbT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="CuY-LS-1f7" id="cxy-g1-9b0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="-2"/>
+            <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
         </scene>
         <!--Book View Controller-->
         <scene sceneID="EBm-af-c4v">
             <objects>
-                <viewController storyboardIdentifier="BookViewController" id="Vqm-aD-txA" customClass="BookViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookViewController" modalPresentationStyle="fullScreen" id="Vqm-aD-txA" customClass="BookViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uby-q5-yky">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-uG-3fG">
-                                <rect key="frame" x="16" y="59" width="44" height="44"/>
+                                <rect key="frame" x="8" y="51" width="44" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPB-0I-A4W">
                                         <rect key="frame" x="8" y="8" width="28" height="28"/>
@@ -97,8 +72,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="centerY" secondItem="YGr-uG-3fG" secondAttribute="centerY" id="142-SL-Jni"/>
-                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="centerX" secondItem="YGr-uG-3fG" secondAttribute="centerX" id="G0w-RC-Mjw"/>
+                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="leading" secondItem="YGr-uG-3fG" secondAttribute="leadingMargin" id="L3T-lp-xt5"/>
+                                    <constraint firstItem="pPB-0I-A4W" firstAttribute="bottom" secondItem="YGr-uG-3fG" secondAttribute="bottomMargin" id="LVt-il-XVP"/>
                                     <constraint firstAttribute="height" constant="44" id="SnD-Oa-wLa"/>
                                     <constraint firstAttribute="width" constant="44" id="xDl-vn-SRe"/>
                                 </constraints>
@@ -133,10 +108,11 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.9137254901960784" green="0.96470588235294119" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="playButton:" destination="Vqm-aD-txA" eventType="touchUpInside" id="A4Q-4W-rPN"/>
-                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dBc-Ws-oTZ">
+                                <rect key="frame" x="0.0" y="496" width="393" height="356"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M2u-pL-ACB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -146,20 +122,26 @@
                             <constraint firstItem="Cy6-CM-plf" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="58W-xz-WD2"/>
                             <constraint firstItem="TnV-74-0hg" firstAttribute="top" secondItem="Cy6-CM-plf" secondAttribute="bottom" constant="16" id="9f8-G3-rlN"/>
                             <constraint firstItem="O13-22-30W" firstAttribute="top" secondItem="Aae-W4-rMN" secondAttribute="bottom" constant="32" id="Elj-X5-X3S"/>
-                            <constraint firstItem="YGr-uG-3fG" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" id="WaP-Vr-pg6"/>
+                            <constraint firstItem="dBc-Ws-oTZ" firstAttribute="top" secondItem="O13-22-30W" secondAttribute="bottom" id="GuS-lq-CSp"/>
+                            <constraint firstItem="YGr-uG-3fG" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" constant="-8" id="WaP-Vr-pg6"/>
                             <constraint firstItem="Aae-W4-rMN" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="50" id="X25-0I-9NX"/>
                             <constraint firstItem="O13-22-30W" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="20" id="YU7-W8-nhf"/>
+                            <constraint firstItem="dBc-Ws-oTZ" firstAttribute="trailing" secondItem="M2u-pL-ACB" secondAttribute="trailing" id="ZcZ-po-hpM"/>
                             <constraint firstItem="Aae-W4-rMN" firstAttribute="top" secondItem="TnV-74-0hg" secondAttribute="bottom" constant="12" id="bSI-zW-o5L"/>
                             <constraint firstItem="M2u-pL-ACB" firstAttribute="trailing" secondItem="O13-22-30W" secondAttribute="trailing" constant="20" id="bX3-vP-fTi"/>
                             <constraint firstItem="TnV-74-0hg" firstAttribute="centerX" secondItem="uby-q5-yky" secondAttribute="centerX" id="ciE-43-zuX"/>
                             <constraint firstItem="Cy6-CM-plf" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" constant="54" id="f8A-Kr-zNY"/>
-                            <constraint firstItem="YGr-uG-3fG" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="16" id="fNj-qt-Ymy"/>
+                            <constraint firstItem="YGr-uG-3fG" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="8" id="fNj-qt-Ymy"/>
+                            <constraint firstItem="dBc-Ws-oTZ" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" id="hJh-H4-vyP"/>
                             <constraint firstItem="M2u-pL-ACB" firstAttribute="trailing" secondItem="Aae-W4-rMN" secondAttribute="trailing" constant="50" id="nnw-Kh-3Ad"/>
+                            <constraint firstAttribute="bottom" secondItem="dBc-Ws-oTZ" secondAttribute="bottom" id="p9e-kb-K9Z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="iconImageView" destination="Cy6-CM-plf" id="f6e-yu-Sbm"/>
+                        <outlet property="playButton" destination="O13-22-30W" id="YgD-L7-Io1"/>
                         <outlet property="subTitleLbl" destination="Aae-W4-rMN" id="m8q-0N-fkz"/>
+                        <outlet property="tableView" destination="dBc-Ws-oTZ" id="Gcm-7C-kct"/>
                         <outlet property="titleLbl" destination="TnV-74-0hg" id="L05-eK-UFr"/>
                     </connections>
                 </viewController>
