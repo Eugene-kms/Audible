@@ -1,6 +1,6 @@
 import UIKit
 
-class MyBookCell: UITableViewCell {
+class BookCell: UITableViewCell {
 
     @IBOutlet weak var iconOfBookView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!

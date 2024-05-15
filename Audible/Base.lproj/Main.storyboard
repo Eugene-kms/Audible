@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,19 +26,32 @@
                                 <rect key="frame" x="0.0" y="109" width="393" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vp-W2-Vc8">
+                                <rect key="frame" x="161.66666666666666" y="768" width="70" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Home">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="homeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ku-tH-xZF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CuY-LS-1f7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6uZ-jc-maL"/>
                             <constraint firstItem="CuY-LS-1f7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AXl-0t-8zZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Vp-W2-Vc8" secondAttribute="bottom" constant="15" id="IqT-NT-KTE"/>
                             <constraint firstItem="pdw-xw-G0M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N4S-CX-ZFC"/>
                             <constraint firstItem="CuY-LS-1f7" firstAttribute="top" secondItem="pdw-xw-G0M" secondAttribute="bottom" constant="20" id="QBB-Qz-iSK"/>
                             <constraint firstItem="pdw-xw-G0M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="SAq-YE-304"/>
                             <constraint firstAttribute="bottom" secondItem="CuY-LS-1f7" secondAttribute="bottom" id="doz-wY-jbT"/>
+                            <constraint firstItem="1Vp-W2-Vc8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y0L-9G-Jib"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="homeButton" destination="1Vp-W2-Vc8" id="waF-Oj-gHs"/>
                         <outlet property="tableView" destination="CuY-LS-1f7" id="cxy-g1-9b0"/>
                     </connections>
                 </viewController>
@@ -147,7 +160,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWX-uc-LQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881.67938931297704" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1624" y="-2"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="yaE-KD-4Lp">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" modalPresentationStyle="fullScreen" id="4yQ-f5-vJI" customClass="HomeViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YYE-bJ-5Qy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxr-1d-vih">
+                                <rect key="frame" x="174.33333333333334" y="71" width="44.666666666666657" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLT-2O-MgG">
+                                <rect key="frame" x="8" y="52" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="8ge-V0-qgd"/>
+                                    <constraint firstAttribute="height" constant="44" id="yLu-ty-7EM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="exit"/>
+                                <connections>
+                                    <action selector="exitButtonTapped:" destination="4yQ-f5-vJI" eventType="touchUpInside" id="1hT-Qd-3ei"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QNI-P5-eCW">
+                                <rect key="frame" x="0.0" y="96" width="393" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wup-k0-Cuu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QNI-P5-eCW" firstAttribute="trailing" secondItem="Wup-k0-Cuu" secondAttribute="trailing" id="4Rd-GM-FgX"/>
+                            <constraint firstItem="nLT-2O-MgG" firstAttribute="leading" secondItem="Wup-k0-Cuu" secondAttribute="leading" constant="8" id="5Iv-PU-wYI"/>
+                            <constraint firstItem="gxr-1d-vih" firstAttribute="top" secondItem="Wup-k0-Cuu" secondAttribute="top" constant="12" id="BQ8-kB-f7n"/>
+                            <constraint firstAttribute="bottom" secondItem="QNI-P5-eCW" secondAttribute="bottom" id="CiA-Ij-08H"/>
+                            <constraint firstItem="nLT-2O-MgG" firstAttribute="top" secondItem="YYE-bJ-5Qy" secondAttribute="top" constant="52" id="KPA-3I-mpE"/>
+                            <constraint firstItem="gxr-1d-vih" firstAttribute="centerX" secondItem="YYE-bJ-5Qy" secondAttribute="centerX" id="cPs-n4-utg"/>
+                            <constraint firstItem="QNI-P5-eCW" firstAttribute="top" secondItem="nLT-2O-MgG" secondAttribute="bottom" id="o0i-YU-nEN"/>
+                            <constraint firstItem="QNI-P5-eCW" firstAttribute="leading" secondItem="Wup-k0-Cuu" secondAttribute="leading" id="vEf-26-g7z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="QNI-P5-eCW" id="ph5-H1-jDs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9Q-gX-8yO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855.72519083969462" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

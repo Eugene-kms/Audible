@@ -14,10 +14,18 @@
 		444146B42BE37A8D00CD0C71 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 444146B32BE37A8D00CD0C71 /* Base */; };
 		444146BC2BE37CC900CD0C71 /* MyBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */; };
 		444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146BD2BE37F6600CD0C71 /* BookViewController.swift */; };
-		444146C72BE4E34600CD0C71 /* MyBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146C52BE4E34600CD0C71 /* MyBookCell.swift */; };
-		444146C82BE4E34600CD0C71 /* MyBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146C62BE4E34600CD0C71 /* MyBookCell.xib */; };
-		444146D12BE4FDA200CD0C71 /* MyBookReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */; };
-		444146D22BE4FDA200CD0C71 /* MyBookReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */; };
+		444146C72BE4E34600CD0C71 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146C52BE4E34600CD0C71 /* BookCell.swift */; };
+		444146C82BE4E34600CD0C71 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146C62BE4E34600CD0C71 /* BookCell.xib */; };
+		444146D12BE4FDA200CD0C71 /* BookReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444146CF2BE4FDA200CD0C71 /* BookReviewCell.swift */; };
+		444146D22BE4FDA200CD0C71 /* BookReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444146D02BE4FDA200CD0C71 /* BookReviewCell.xib */; };
+		445DEBA82BF5156F000D596C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBA72BF5156F000D596C /* HomeViewController.swift */; };
+		445DEBAC2BF51CC3000D596C /* HomeGreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBAA2BF51CC3000D596C /* HomeGreetingCell.swift */; };
+		445DEBAD2BF51CC3000D596C /* HomeGreetingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445DEBAB2BF51CC3000D596C /* HomeGreetingCell.xib */; };
+		445DEBB12BF52249000D596C /* HomeBooksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBAF2BF52249000D596C /* HomeBooksCell.swift */; };
+		445DEBB22BF52249000D596C /* HomeBooksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445DEBB02BF52249000D596C /* HomeBooksCell.xib */; };
+		445DEBB52BF5266D000D596C /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBB42BF5266D000D596C /* BookData.swift */; };
+		445DEBB92BF53C74000D596C /* ShowBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBB72BF53C74000D596C /* ShowBookCell.swift */; };
+		445DEBBA2BF53C74000D596C /* ShowBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445DEBB82BF53C74000D596C /* ShowBookCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +38,18 @@
 		444146B52BE37A8D00CD0C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksViewController.swift; sourceTree = "<group>"; };
 		444146BD2BE37F6600CD0C71 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		444146C52BE4E34600CD0C71 /* MyBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookCell.swift; sourceTree = "<group>"; };
-		444146C62BE4E34600CD0C71 /* MyBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBookCell.xib; sourceTree = "<group>"; };
-		444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookReviewCell.swift; sourceTree = "<group>"; };
-		444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBookReviewCell.xib; sourceTree = "<group>"; };
+		444146C52BE4E34600CD0C71 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		444146C62BE4E34600CD0C71 /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
+		444146CF2BE4FDA200CD0C71 /* BookReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewCell.swift; sourceTree = "<group>"; };
+		444146D02BE4FDA200CD0C71 /* BookReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookReviewCell.xib; sourceTree = "<group>"; };
+		445DEBA72BF5156F000D596C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		445DEBAA2BF51CC3000D596C /* HomeGreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingCell.swift; sourceTree = "<group>"; };
+		445DEBAB2BF51CC3000D596C /* HomeGreetingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeGreetingCell.xib; sourceTree = "<group>"; };
+		445DEBAF2BF52249000D596C /* HomeBooksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBooksCell.swift; sourceTree = "<group>"; };
+		445DEBB02BF52249000D596C /* HomeBooksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBooksCell.xib; sourceTree = "<group>"; };
+		445DEBB42BF5266D000D596C /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
+		445DEBB72BF53C74000D596C /* ShowBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBookCell.swift; sourceTree = "<group>"; };
+		445DEBB82BF53C74000D596C /* ShowBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowBookCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,36 +82,100 @@
 		444146A62BE37A8900CD0C71 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
-				444146CE2BE4FD8200CD0C71 /* MyBookReviewCell */,
-				444146C42BE4E30300CD0C71 /* MyBookCell */,
+				445DEBB32BF52643000D596C /* Model */,
+				445DEBA62BF5154C000D596C /* HomeViewController */,
+				445DEBA52BF514FD000D596C /* BookViewController */,
+				445DEBA42BF5129D000D596C /* MyBooks */,
 				444146A72BE37A8900CD0C71 /* AppDelegate.swift */,
 				444146A92BE37A8900CD0C71 /* SceneDelegate.swift */,
 				444146AD2BE37A8900CD0C71 /* Main.storyboard */,
 				444146B02BE37A8D00CD0C71 /* Assets.xcassets */,
 				444146B22BE37A8D00CD0C71 /* LaunchScreen.storyboard */,
 				444146B52BE37A8D00CD0C71 /* Info.plist */,
-				444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */,
-				444146BD2BE37F6600CD0C71 /* BookViewController.swift */,
 			);
 			path = Audible;
 			sourceTree = "<group>";
 		};
-		444146C42BE4E30300CD0C71 /* MyBookCell */ = {
+		444146C42BE4E30300CD0C71 /* BookCell */ = {
 			isa = PBXGroup;
 			children = (
-				444146C52BE4E34600CD0C71 /* MyBookCell.swift */,
-				444146C62BE4E34600CD0C71 /* MyBookCell.xib */,
+				444146C52BE4E34600CD0C71 /* BookCell.swift */,
+				444146C62BE4E34600CD0C71 /* BookCell.xib */,
 			);
-			path = MyBookCell;
+			path = BookCell;
 			sourceTree = "<group>";
 		};
-		444146CE2BE4FD8200CD0C71 /* MyBookReviewCell */ = {
+		444146CE2BE4FD8200CD0C71 /* BookReviewCell */ = {
 			isa = PBXGroup;
 			children = (
-				444146CF2BE4FDA200CD0C71 /* MyBookReviewCell.swift */,
-				444146D02BE4FDA200CD0C71 /* MyBookReviewCell.xib */,
+				444146CF2BE4FDA200CD0C71 /* BookReviewCell.swift */,
+				444146D02BE4FDA200CD0C71 /* BookReviewCell.xib */,
 			);
-			path = MyBookReviewCell;
+			path = BookReviewCell;
+			sourceTree = "<group>";
+		};
+		445DEBA42BF5129D000D596C /* MyBooks */ = {
+			isa = PBXGroup;
+			children = (
+				444146C42BE4E30300CD0C71 /* BookCell */,
+				444146BB2BE37CC900CD0C71 /* MyBooksViewController.swift */,
+			);
+			path = MyBooks;
+			sourceTree = "<group>";
+		};
+		445DEBA52BF514FD000D596C /* BookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				444146CE2BE4FD8200CD0C71 /* BookReviewCell */,
+				444146BD2BE37F6600CD0C71 /* BookViewController.swift */,
+			);
+			path = BookViewController;
+			sourceTree = "<group>";
+		};
+		445DEBA62BF5154C000D596C /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				445DEBAE2BF521BC000D596C /* HomeBooksCell */,
+				445DEBA92BF51BBD000D596C /* HomeGreetingCell */,
+				445DEBA72BF5156F000D596C /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		445DEBA92BF51BBD000D596C /* HomeGreetingCell */ = {
+			isa = PBXGroup;
+			children = (
+				445DEBAA2BF51CC3000D596C /* HomeGreetingCell.swift */,
+				445DEBAB2BF51CC3000D596C /* HomeGreetingCell.xib */,
+			);
+			path = HomeGreetingCell;
+			sourceTree = "<group>";
+		};
+		445DEBAE2BF521BC000D596C /* HomeBooksCell */ = {
+			isa = PBXGroup;
+			children = (
+				445DEBB62BF53C20000D596C /* ShowBookCell */,
+				445DEBAF2BF52249000D596C /* HomeBooksCell.swift */,
+				445DEBB02BF52249000D596C /* HomeBooksCell.xib */,
+			);
+			path = HomeBooksCell;
+			sourceTree = "<group>";
+		};
+		445DEBB32BF52643000D596C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				445DEBB42BF5266D000D596C /* BookData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		445DEBB62BF53C20000D596C /* ShowBookCell */ = {
+			isa = PBXGroup;
+			children = (
+				445DEBB72BF53C74000D596C /* ShowBookCell.swift */,
+				445DEBB82BF53C74000D596C /* ShowBookCell.xib */,
+			);
+			path = ShowBookCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +236,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				444146D22BE4FDA200CD0C71 /* MyBookReviewCell.xib in Resources */,
-				444146C82BE4E34600CD0C71 /* MyBookCell.xib in Resources */,
+				444146D22BE4FDA200CD0C71 /* BookReviewCell.xib in Resources */,
+				445DEBAD2BF51CC3000D596C /* HomeGreetingCell.xib in Resources */,
+				444146C82BE4E34600CD0C71 /* BookCell.xib in Resources */,
 				444146B12BE37A8D00CD0C71 /* Assets.xcassets in Resources */,
+				445DEBB22BF52249000D596C /* HomeBooksCell.xib in Resources */,
+				445DEBBA2BF53C74000D596C /* ShowBookCell.xib in Resources */,
 				444146B42BE37A8D00CD0C71 /* Base in Resources */,
 				444146AF2BE37A8900CD0C71 /* Base in Resources */,
 			);
@@ -171,12 +254,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445DEBB52BF5266D000D596C /* BookData.swift in Sources */,
+				445DEBB92BF53C74000D596C /* ShowBookCell.swift in Sources */,
 				444146A82BE37A8900CD0C71 /* AppDelegate.swift in Sources */,
 				444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */,
-				444146D12BE4FDA200CD0C71 /* MyBookReviewCell.swift in Sources */,
-				444146C72BE4E34600CD0C71 /* MyBookCell.swift in Sources */,
+				444146D12BE4FDA200CD0C71 /* BookReviewCell.swift in Sources */,
+				444146C72BE4E34600CD0C71 /* BookCell.swift in Sources */,
 				444146AA2BE37A8900CD0C71 /* SceneDelegate.swift in Sources */,
+				445DEBA82BF5156F000D596C /* HomeViewController.swift in Sources */,
 				444146BC2BE37CC900CD0C71 /* MyBooksViewController.swift in Sources */,
+				445DEBAC2BF51CC3000D596C /* HomeGreetingCell.swift in Sources */,
+				445DEBB12BF52249000D596C /* HomeBooksCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

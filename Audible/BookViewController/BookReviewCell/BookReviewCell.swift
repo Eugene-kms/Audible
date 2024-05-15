@@ -1,6 +1,6 @@
 import UIKit
 
-class MyBookReviewCell: UITableViewCell {
+class BookReviewCell: UITableViewCell {
 
     @IBOutlet weak var titleLbl: UILabel!
     
