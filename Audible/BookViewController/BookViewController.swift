@@ -1,13 +1,5 @@
 import UIKit
 
-
-struct BookData {
-    let image: UIImage
-    let title: String
-    let subTitle: String
-    let reviews: [String]
-}
-
 //class for all screen of book and reviews
 class BookViewController: UIViewController {
     
@@ -31,7 +23,7 @@ class BookViewController: UIViewController {
     
     private func configureTableView() {
         tableView.dataSource = self
-        let cell = "MyBookReviewCell"
+        let cell = "BookReviewCell"
         tableView.register(UINib(nibName: cell, bundle: nil), forCellReuseIdentifier: cell)
     }
     
@@ -52,7 +44,7 @@ extension BookViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookReviewCell") as? MyBookReviewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookReviewCell") as? BookReviewCell else { return UITableViewCell() }
         
         let review = bookData.reviews[indexPath.row]
         

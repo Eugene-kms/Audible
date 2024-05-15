@@ -2,9 +2,10 @@ import UIKit
 
 class MyBooksViewController: UIViewController {
     
-    var listOfBooks: [BookData] = []
-    
+    @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    var listOfBooks: [BookData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,7 @@ class MyBooksViewController: UIViewController {
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        let cell = "MyBookCell"
+        let cell = "BookCell"
         tableView.register(UINib(nibName: cell, bundle: nil), forCellReuseIdentifier: cell)
         tableView.rowHeight = 44
     }
@@ -38,18 +39,24 @@ class MyBooksViewController: UIViewController {
             image: .whyWeSleep,
             title: "Why We Sleep",
             subTitle: "Unlocking the Power of Sleep and Dreams",
+            authors: [],
+            rating: "3.7",
             reviews: reviewsWhyWeSleep()))
         
         lists.append(BookData(
             image: .dopamineNation,
             title: "Dopamine Nation",
             subTitle: "Finding Balance in the Age of Indulgence",
+            authors: [],
+            rating: "4.2",
             reviews: reviewsDopamineNation()))
         
         lists.append(BookData(
             image: .startWithWhy,
             title: "Start with Why",
             subTitle: "How Great Leaders Inspire Everyone to Take Action",
+            authors: [],
+            rating: "4.5",
             reviews: reviewsStartWithWhy()))
         
         return lists
@@ -95,6 +102,13 @@ class MyBooksViewController: UIViewController {
         
         return reviews
     }
+    
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        
+        present(viewController, animated: true)
+    }
+    
 }
 
 extension MyBooksViewController: UITableViewDataSource {
@@ -105,7 +119,7 @@ extension MyBooksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as? MyBookCell else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell") as? BookCell else { return UITableViewCell() }
         
         let bookData = listOfBooks[indexPath.row]
         
