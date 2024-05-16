@@ -2,10 +2,11 @@ import UIKit
 
 class HomeGreetingCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var greetingLable: UILabel!
+    @IBOutlet weak var subtitleLable: UILabel!
+    
+    func configure(with viewModel: GreedingCellViewModel) {
+        greetingLable.text = viewModel.greeting
+        subtitleLable.text = viewModel.subtitle
     }
-
-   
 }

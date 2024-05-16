@@ -24,12 +24,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="78r-Sw-f53">
-                        <rect key="frame" x="0.0" y="50" width="320" height="231"/>
+                        <rect key="frame" x="0.0" y="50" width="320" height="239"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="231" id="2Bc-dg-gZU"/>
+                            <constraint firstAttribute="height" constant="239" id="2Bc-dg-gZU"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NCg-4F-6hm">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NCg-4F-6hm">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -39,7 +39,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="BxL-Ex-x1U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5iS-eq-tsU"/>
-                    <constraint firstAttribute="bottom" secondItem="78r-Sw-f53" secondAttribute="bottom" constant="8" id="8j2-eG-goN"/>
+                    <constraint firstAttribute="bottom" secondItem="78r-Sw-f53" secondAttribute="bottom" id="8j2-eG-goN"/>
                     <constraint firstItem="78r-Sw-f53" firstAttribute="top" secondItem="BxL-Ex-x1U" secondAttribute="bottom" constant="16" id="Mqr-lv-y8U"/>
                     <constraint firstItem="78r-Sw-f53" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YAa-Ve-7UB"/>
                     <constraint firstItem="BxL-Ex-x1U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="sCh-Z0-JAR"/>

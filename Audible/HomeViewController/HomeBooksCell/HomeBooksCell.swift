@@ -9,12 +9,13 @@ class HomeBooksCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        configureCollectionView()
     }
     
-    func configure(title: String, with books: [BookData]) {
-        self.titleLable.text = title
-        self.books = books
+    func configure(with viewModel: BooksShowViewModel) {
+        self.titleLable.text = viewModel.title
+        self.books = viewModel.books
         collectionView.reloadData()
     }
 
@@ -23,7 +24,6 @@ class HomeBooksCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ShowBookCell", bundle: nil), forCellWithReuseIdentifier: "ShowBookCell")
     }
-    
 }
 
 extension HomeBooksCell: UICollectionViewDataSource {
@@ -44,10 +44,14 @@ extension HomeBooksCell: UICollectionViewDataSource {
 
 extension HomeBooksCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 180, height: 231)
     }
 }
