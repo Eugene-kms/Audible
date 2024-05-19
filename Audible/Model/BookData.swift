@@ -6,5 +6,5 @@ struct BookData {
     let subTitle: String
     let authors: [String]
     let rating: String
-    let reviews: [String]
+    var reviews: [String]
 }

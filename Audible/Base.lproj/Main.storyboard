@@ -92,7 +92,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dBc-Ws-oTZ">
-                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
+                                <rect key="frame" x="0.0" y="95" width="393" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfZ-Sz-8bY">
@@ -110,7 +110,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="star.bubble.fill" catalog="system"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFu-uY-WP2">
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFu-uY-WP2">
                                                 <rect key="frame" x="331" y="4" width="60" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="lPK-N3-Eea"/>
@@ -120,9 +120,12 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Post">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="postButtonTapped:" destination="Vqm-aD-txA" eventType="touchUpInside" id="tcF-v0-d2z"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Review" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="77h-At-tfN">
-                                                <rect key="frame" x="48" y="16.666666666666629" width="85" height="19"/>
+                                                <rect key="frame" x="48" y="16.666666666666629" width="283" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="SkK-x5-pIB"/>
                                                 </constraints>
@@ -139,6 +142,7 @@
                                             <constraint firstItem="77h-At-tfN" firstAttribute="centerY" secondItem="wOL-87-8lR" secondAttribute="centerY" id="UgS-d4-qqq"/>
                                             <constraint firstItem="tDC-8z-mSQ" firstAttribute="centerY" secondItem="wOL-87-8lR" secondAttribute="centerY" id="VKs-hT-HKC"/>
                                             <constraint firstItem="gFu-uY-WP2" firstAttribute="centerY" secondItem="wOL-87-8lR" secondAttribute="centerY" id="awo-LD-MsZ"/>
+                                            <constraint firstItem="gFu-uY-WP2" firstAttribute="leading" secondItem="77h-At-tfN" secondAttribute="trailing" id="vGC-Dn-nd3"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -156,17 +160,23 @@
                             <constraint firstItem="wOL-87-8lR" firstAttribute="bottom" secondItem="M2u-pL-ACB" secondAttribute="bottom" id="H3p-he-b3J"/>
                             <constraint firstItem="OfZ-Sz-8bY" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" id="LYr-il-UxQ"/>
                             <constraint firstItem="dBc-Ws-oTZ" firstAttribute="top" secondItem="YGr-uG-3fG" secondAttribute="bottom" id="QtX-Og-j5g"/>
+                            <constraint firstItem="OfZ-Sz-8bY" firstAttribute="top" secondItem="dBc-Ws-oTZ" secondAttribute="bottom" id="Tyv-mk-zjK"/>
                             <constraint firstItem="YGr-uG-3fG" firstAttribute="top" secondItem="M2u-pL-ACB" secondAttribute="top" constant="-8" id="WaP-Vr-pg6"/>
                             <constraint firstItem="dBc-Ws-oTZ" firstAttribute="trailing" secondItem="M2u-pL-ACB" secondAttribute="trailing" id="ZcZ-po-hpM"/>
                             <constraint firstItem="YGr-uG-3fG" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="8" id="fNj-qt-Ymy"/>
                             <constraint firstItem="dBc-Ws-oTZ" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" id="hJh-H4-vyP"/>
                             <constraint firstItem="OfZ-Sz-8bY" firstAttribute="trailing" secondItem="M2u-pL-ACB" secondAttribute="trailing" id="lfq-Kh-i7t"/>
                             <constraint firstAttribute="bottom" secondItem="OfZ-Sz-8bY" secondAttribute="bottom" id="ofx-QZ-9vY"/>
-                            <constraint firstAttribute="bottom" secondItem="dBc-Ws-oTZ" secondAttribute="bottom" id="p9e-kb-K9Z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="postButton" destination="gFu-uY-WP2" id="8st-hX-W5F"/>
+                        <outlet property="postReviewButton" destination="tDC-8z-mSQ" id="7DW-7R-nqC"/>
+                        <outlet property="postReviewSafeBottomConstraint" destination="H3p-he-b3J" id="lur-AC-v3I"/>
+                        <outlet property="postReviewSafeView" destination="wOL-87-8lR" id="Mbp-ca-YdC"/>
+                        <outlet property="postReviewView" destination="OfZ-Sz-8bY" id="MBC-Ch-npA"/>
                         <outlet property="tableView" destination="dBc-Ws-oTZ" id="Gcm-7C-kct"/>
+                        <outlet property="textField" destination="77h-At-tfN" id="fY8-Vq-VQP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWX-uc-LQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

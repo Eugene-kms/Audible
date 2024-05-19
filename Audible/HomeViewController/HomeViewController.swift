@@ -104,6 +104,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "HomeGreetingCell", bundle: nil), forCellReuseIdentifier: "HomeGreetingCell")
+        
         tableView.register(UINib(nibName: "HomeBooksCell", bundle: nil), forCellReuseIdentifier: "HomeBooksCell")
     }
     
@@ -123,11 +124,15 @@ extension HomeViewController: UITableViewDataSource {
         case .greeding(let viewModel):
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeGreetingCell") as! HomeGreetingCell
             cell.configure(with: viewModel)
+            cell.selectionStyle = .none
+            
             return cell
             
         case .books(let viewModel):
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeBooksCell") as! HomeBooksCell
             cell.configure(with: viewModel)
+            cell.selectionStyle = .none
+            
             return cell
         }
     }
