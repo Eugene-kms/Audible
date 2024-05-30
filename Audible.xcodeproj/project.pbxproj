@@ -29,6 +29,7 @@
 		445DEBBE2BF688FA000D596C /* BookHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DEBBC2BF688FA000D596C /* BookHeaderCell.swift */; };
 		445DEBBF2BF688FA000D596C /* BookHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445DEBBD2BF688FA000D596C /* BookHeaderCell.xib */; };
 		4482B0F72BFA52DF00FF84DE /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482B0F62BFA52DF00FF84DE /* UIColor+Hex.swift */; };
+		44B6AAE52C079A9700C10CFE /* BookDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B6AAE42C079A9700C10CFE /* BookDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		445DEBBC2BF688FA000D596C /* BookHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHeaderCell.swift; sourceTree = "<group>"; };
 		445DEBBD2BF688FA000D596C /* BookHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookHeaderCell.xib; sourceTree = "<group>"; };
 		4482B0F62BFA52DF00FF84DE /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		44B6AAE42C079A9700C10CFE /* BookDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		444146A62BE37A8900CD0C71 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				44B6AAE32C079A5200C10CFE /* Networking */,
 				4482B0F52BFA52C500FF84DE /* Util */,
 				445DEBB32BF52643000D596C /* Model */,
 				445DEBA62BF5154C000D596C /* HomeViewController */,
@@ -203,6 +206,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		44B6AAE32C079A5200C10CFE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				44B6AAE42C079A9700C10CFE /* BookDataRepository.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +297,7 @@
 				444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */,
 				444146D12BE4FDA200CD0C71 /* BookReviewCell.swift in Sources */,
 				444146C72BE4E34600CD0C71 /* BookCell.swift in Sources */,
+				44B6AAE52C079A9700C10CFE /* BookDataRepository.swift in Sources */,
 				444146AA2BE37A8900CD0C71 /* SceneDelegate.swift in Sources */,
 				445DEBA82BF5156F000D596C /* HomeViewController.swift in Sources */,
 				444146BC2BE37CC900CD0C71 /* MyBooksViewController.swift in Sources */,

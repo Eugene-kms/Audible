@@ -111,7 +111,6 @@ class HomeViewController: UIViewController {
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource {
