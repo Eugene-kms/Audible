@@ -96,6 +96,7 @@ extension MyBooksViewController: UITableViewDataSource {
 
 extension MyBooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let bookData = viewModel.bookData[indexPath.row]
         present(with: bookData)
     }
