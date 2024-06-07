@@ -46,21 +46,24 @@ class HomeViewController: UIViewController {
                 subTitle: "How We Learn as it's meant to be heard",
                 authors: ["Stanislas Dehaene"],
                 rating: "4.6",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .thinkingFastAndSlow,
                 title: "Thinking, Fast and Slow",
                 subTitle: "",
                 authors: ["Daniel Kahneman"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .talkingToStrangers,
                 title: "Talking to Strangers",
                 subTitle: "",
                 authors: ["Malcolm Gladwell"],
                 rating: "",
-                reviews: [])
+                reviews: [],
+                priceInCredits: 1)
             ]))
         
         rows.append(similarRow)
@@ -74,28 +77,32 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Mo Gawdat", "Alice Law"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .liberatedLove,
                 title: "Liberated Love",
                 subTitle: "",
                 authors: ["Mark Groves", "Kylie McBeath"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .kokoro,
                 title: "Kokoro",
                 subTitle: "",
                 authors: ["Beth Kempton"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .threeSummers,
                 title: "Three Summers",
                 subTitle: "",
                 authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"],
                 rating: "",
-                reviews: [])
+                reviews: [],
+                priceInCredits: 1)
             ]))
         
         rows.append(popularRow)

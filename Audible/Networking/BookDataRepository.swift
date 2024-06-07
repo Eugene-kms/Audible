@@ -23,6 +23,7 @@ struct BookDataDTO: Codable {
     let image: String
     let rating: String
     let reviews: [String]
+    let priceInCredits: Int
     
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -31,6 +32,7 @@ struct BookDataDTO: Codable {
         self.image = try container.decode(String.self, forKey: .image)
         self.rating = try container.decode(String.self, forKey: .rating)
         self.reviews = try container.decodeIfPresent([String].self, forKey: .reviews) ?? []
+        self.priceInCredits = try container.decode(Int.self, forKey: .priceInCredits)
     }
 }
 
@@ -72,6 +74,8 @@ extension BookDataDTO {
             subTitle: subtitle,
             authors: [],
             rating: rating,
-            reviews: reviews)
+            reviews: reviews,
+            isInLibraryMyBooks: true,
+            priceInCredits: priceInCredits)
     }
 }
