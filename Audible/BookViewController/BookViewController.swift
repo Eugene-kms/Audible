@@ -27,6 +27,8 @@ class BookViewController: UIViewController {
         configureTextField()
         
         setPostReviewButton(enabled: false)
+        
+        configurePostReviewField(with: bookData)
     }
     
     deinit {
@@ -58,6 +60,10 @@ class BookViewController: UIViewController {
         postReviewView.layer.shadowRadius = 18.5
         postReviewView.layer.shadowPath = UIBezierPath(rect: postReviewView.bounds).cgPath
         postReviewView.layer.shadowOpacity = 1
+    }
+    
+    private func configurePostReviewField(with book: BookData) {
+        postReviewView.isHidden = book.isInLibraryMyBooks
     }
     
     func configureKeyboard() {

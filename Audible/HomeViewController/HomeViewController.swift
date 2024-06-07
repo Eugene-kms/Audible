@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         fillDataSource()
+        
         configureTableView()
     }
     
@@ -42,24 +43,27 @@ class HomeViewController: UIViewController {
             BookData(
                 image: .howWeLearn,
                 title: "How We Learn",
-                subTitle: "",
+                subTitle: "How We Learn as it's meant to be heard",
                 authors: ["Stanislas Dehaene"],
-                rating: "",
-                reviews: []),
+                rating: "4.6",
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .thinkingFastAndSlow,
                 title: "Thinking, Fast and Slow",
                 subTitle: "",
                 authors: ["Daniel Kahneman"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .talkingToStrangers,
                 title: "Talking to Strangers",
                 subTitle: "",
                 authors: ["Malcolm Gladwell"],
                 rating: "",
-                reviews: [])
+                reviews: [],
+                priceInCredits: 1)
             ]))
         
         rows.append(similarRow)
@@ -73,28 +77,32 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Mo Gawdat", "Alice Law"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .liberatedLove,
                 title: "Liberated Love",
                 subTitle: "",
                 authors: ["Mark Groves", "Kylie McBeath"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .kokoro,
                 title: "Kokoro",
                 subTitle: "",
                 authors: ["Beth Kempton"],
                 rating: "",
-                reviews: []),
+                reviews: [],
+                priceInCredits: 1),
             BookData(
                 image: .threeSummers,
                 title: "Three Summers",
                 subTitle: "",
                 authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"],
                 rating: "",
-                reviews: [])
+                reviews: [],
+                priceInCredits: 1)
             ]))
         
         rows.append(popularRow)
@@ -107,6 +115,7 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: "HomeBooksCell", bundle: nil), forCellReuseIdentifier: "HomeBooksCell")
     }
+    
     
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
@@ -132,11 +141,28 @@ extension HomeViewController: UITableViewDataSource {
             cell.configure(with: viewModel)
             cell.selectionStyle = .none
             
+            cell.didSelectBook = { [weak self] book in
+                self?.presentDetailBook(book)
+            }
+            
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         rows.count
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    private func presentDetailBook(_ book: BookData) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
+        
+        viewController.bookData = book
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        present(viewController, animated: true)
     }
 }

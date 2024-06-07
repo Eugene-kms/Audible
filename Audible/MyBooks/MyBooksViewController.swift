@@ -1,35 +1,5 @@
 import UIKit
 
-class MyBooksViewModel {
-    
-    private let repository: BookDataRepository
-    
-    var bookData: [BookData] = []
-    
-    var didFetchBooks: () -> ()
-    
-    init(repository: BookDataRepository = BookDataRepository(), didFetchBooks: @escaping (() -> ())) {
-        self.repository = repository
-        self.didFetchBooks = didFetchBooks
-    }
-    
-    func fetchAudible() {
-        Task {
-            do {
-                let result = try await
-                self.repository.fetchBookData()
-                self.bookData = result
-                
-                await MainActor.run {
-                    self.didFetchBooks()
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
-}
-
 class MyBooksViewController: UIViewController {
     
     @IBOutlet weak var homeButton: UIButton!
@@ -96,6 +66,7 @@ extension MyBooksViewController: UITableViewDataSource {
 
 extension MyBooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let bookData = viewModel.bookData[indexPath.row]
         present(with: bookData)
     }
