@@ -9,6 +9,8 @@ class MyBooksViewController: UIViewController {
         didFetchBooks:
             { [weak self] in
                 self?.tableView.reloadData()
+                
+                print("Did fetch Books!!!")
             })
     
     override func viewDidLoad() {
@@ -32,7 +34,7 @@ class MyBooksViewController: UIViewController {
         
         bookViewController.modalPresentationStyle = .fullScreen
         
-        bookViewController.bookData = bookData
+        bookViewController.viewModel = BookViewModel(bookData: bookData)
         
         present(bookViewController, animated: true)
     }
@@ -49,6 +51,7 @@ extension MyBooksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.bookData.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

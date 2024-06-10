@@ -17,33 +17,19 @@ import UIKit
     "title": "Start with Why"
 }' 'https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/audible.json' */
 
-struct BookDataDTO: Codable {
-    let title: String
-    let subtitle: String
-    let image: String
-    let rating: String
-    let reviews: [String]
-    let priceInCredits: Int
-    
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.subtitle = try container.decode(String.self, forKey: .subtitle)
-        self.image = try container.decode(String.self, forKey: .image)
-        self.rating = try container.decode(String.self, forKey: .rating)
-        self.reviews = try container.decodeIfPresent([String].self, forKey: .reviews) ?? []
-        self.priceInCredits = try container.decode(Int.self, forKey: .priceInCredits)
-    }
+//curl -X POST -d '{ "authors" }' 'https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/audible.json'
+
+struct FirebasePostResponsDTO: Codable {
+    let name: String
 }
 
 class BookDataRepository {
     
     typealias BookDataResponse = [String: BookDataDTO]
     
+    private let url = URL(string: "https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/audible.json")!
+    
     func fetchBookData() async throws -> [BookData] {
-        
-        let url = URL(string: "https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/audible.json")!
-        
         let request = URLRequest(url: url)
         
         let (data, _) = try await URLSession.shared.data(for: request)
@@ -51,6 +37,19 @@ class BookDataRepository {
         let decoded = try JSONDecoder().decode(BookDataResponse.self, from: data)
         
         return toDomain(decoded)
+    }
+    
+    func addBookToLibraryMyBooks(_ book: BookData) async throws {
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try JSONEncoder().encode(book.toData)
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        let decoded = try JSONDecoder().decode(FirebasePostResponsDTO.self, from: data)
+        
+        print("Successfully added \(book.title) to database with id \(decoded.name)")
     }
     
     private func toDomain(_ bookDataResponse: BookDataResponse) -> [BookData] {
@@ -69,13 +68,27 @@ extension BookDataDTO {
     
     var toDomain: BookData {
         BookData(
-            image: UIImage(named: image) ?? UIImage(),
+            imageName: image,
             title: title,
             subTitle: subtitle,
-            authors: [],
+            authors: authors,
             rating: rating,
             reviews: reviews,
             isInLibraryMyBooks: true,
+            priceInCredits: priceInCredits)
+    }
+}
+
+extension BookData {
+    
+    var toData: BookDataDTO {
+        BookDataDTO(
+            title: title,
+            subtitle: subTitle,
+            authors: authors,
+            image: imageName,
+            rating: rating,
+            reviews: reviews,
             priceInCredits: priceInCredits)
     }
 }

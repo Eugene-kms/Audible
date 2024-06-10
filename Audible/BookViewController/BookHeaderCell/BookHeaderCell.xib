@@ -39,6 +39,9 @@
                         <state key="normal" title="Play">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="didTapPlayButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oHb-r1-0sf"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why We Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36O-uh-yRI">
                         <rect key="frame" x="114.66666666666666" y="257" width="125.66666666666666" height="21"/>

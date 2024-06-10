@@ -7,6 +7,10 @@ class BookHeaderCell: UITableViewCell {
     @IBOutlet weak var subtitleLable: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
+    var didTapPurchase: (() -> ())?
+    
+    private var bookData: BookData?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -16,7 +20,8 @@ class BookHeaderCell: UITableViewCell {
     }
     
     func configure(with book: BookData) {
-        coverImageView.image = book.image
+        self.bookData = book
+        coverImageView.image = UIImage(named: book.imageName)
         titleLable.text = book.title
         subtitleLable.text = book.subTitle
         configureButton(with: book)
@@ -44,4 +49,11 @@ class BookHeaderCell: UITableViewCell {
             return "Purchase (\(credits) credits)"
         }
     }
+    
+    @IBAction func didTapPlayButton(_ sender: Any) {
+        guard let bookData, !bookData.isInLibraryMyBooks else { return }
+        
+        didTapPurchase?()
+    }
+    
 }

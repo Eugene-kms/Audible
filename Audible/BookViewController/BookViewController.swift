@@ -1,12 +1,39 @@
 import UIKit
 
+enum BookViewSection: Int, CaseIterable {
+    case header = 0
+    case reviews
+}
+
+class BookViewModel {
+    
+    var bookData: BookData
+    
+    private let repository: BookDataRepository
+    
+    init(bookData: BookData, repository: BookDataRepository = BookDataRepository()) {
+        self.bookData = bookData
+        self.repository = repository
+    }
+    
+    func purchaseBook() {
+        guard !bookData.isInLibraryMyBooks else { return }
+        
+        bookData.isInLibraryMyBooks = true
+        
+        Task {
+            do {
+                try await repository.addBookToLibraryMyBooks(bookData)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+}
+
 //class for all screen of books and reviews
 class BookViewController: UIViewController {
-    
-    enum Section: Int, CaseIterable {
-        case header = 0
-        case reviews
-    }
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postReviewView: UIView!
@@ -15,8 +42,8 @@ class BookViewController: UIViewController {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var postReviewSafeBottomConstraint: NSLayoutConstraint!
-    
-    var bookData: BookData!
+        
+    var viewModel: BookViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +55,7 @@ class BookViewController: UIViewController {
         
         setPostReviewButton(enabled: false)
         
-        configurePostReviewField(with: bookData)
+        configurePostReviewField(with: viewModel.bookData)
     }
     
     deinit {
@@ -104,7 +131,7 @@ class BookViewController: UIViewController {
             self.postButton.alpha = isKeyboardPresent ? 1 : 0
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.tableView.scrollToRow(at: IndexPath(row: self.bookData.reviews.count - 1, section: Section.reviews.rawValue), at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: self.viewModel.bookData.reviews.count - 1, section: BookViewSection.reviews.rawValue), at: .bottom, animated: true)
         }
     }
     
@@ -123,9 +150,9 @@ class BookViewController: UIViewController {
     @IBAction func postButtonTapped(_ sender: Any) {
         guard isNewItemValid, let text = textField.text else { return }
         
-        bookData.reviews.append(text)
+        viewModel.bookData.reviews.append(text)
         
-        let indexPath = IndexPath(row: bookData.reviews.count - 1, section: Section.reviews.rawValue)
+        let indexPath = IndexPath(row: viewModel.bookData.reviews.count - 1, section: BookViewSection.reviews.rawValue)
         tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         
@@ -137,42 +164,51 @@ class BookViewController: UIViewController {
 extension BookViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        Section.allCases.count
+        BookViewSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let section = Section(rawValue: section) else { return 0 }
+        guard let section = BookViewSection(rawValue: section) else { return 0 }
         
         switch section {
         case .header:
             return 1
         case .reviews:
-            return bookData.reviews.count
+            return viewModel.bookData.reviews.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
+        guard let section = BookViewSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
         case .header:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BookHeaderCell", for: indexPath) as! BookHeaderCell
             
-            cell.configure(with: bookData)
+            cell.configure(with: viewModel.bookData)
+            cell.didTapPurchase = { [weak self] in
+                self?.didTapPurchaseButton()
+            }
             
             return cell
             
         case .reviews:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookReviewCell") as? BookReviewCell else { return UITableViewCell() }
             
-            let review = bookData.reviews[indexPath.row]
+            let review = viewModel.bookData.reviews[indexPath.row]
             
             cell.configure(with: review)
             
             return cell
         }
+    }
+    
+    private func didTapPurchaseButton() {
+        viewModel.purchaseBook()
+        configurePostReviewField(with: viewModel.bookData)
+        tableView.reloadData()
     }
 }
 
@@ -180,7 +216,7 @@ extension BookViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let section = Section(rawValue: indexPath.section) else { return 0 }
+        guard let section = BookViewSection(rawValue: indexPath.section) else { return 0 }
         
         switch section {
         case .header:

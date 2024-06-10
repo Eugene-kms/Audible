@@ -7,7 +7,7 @@ class ShowBookCell: UICollectionViewCell {
     @IBOutlet weak var authorsLable: UILabel!
 
     func configure(_ book: BookData) {
-        coverImageView.image = book.image
+        coverImageView.image = UIImage(named: book.imageName)
         titleLable.text = book.title
         authorsLable.text = "By " + book.authors.joined(separator: ", ")
     }

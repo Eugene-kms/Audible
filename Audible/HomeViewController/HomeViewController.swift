@@ -41,28 +41,28 @@ class HomeViewController: UIViewController {
             title: "Similar titles you have listened to",
             books: [
             BookData(
-                image: .howWeLearn,
+                imageName: "howWeLearn",
                 title: "How We Learn",
                 subTitle: "How We Learn as it's meant to be heard",
                 authors: ["Stanislas Dehaene"],
                 rating: "4.6",
-                reviews: [],
+                reviews: ["Amazingly informative, unfitting reader", "In-depth sleep analysis that fails to grasp", "A must read if you want to live longer", "That Narrator!!!", "An eye-opener", "We don't sleep enough. Here's how.", "Un libro genial"],
                 priceInCredits: 1),
             BookData(
-                image: .thinkingFastAndSlow,
+                imageName: "thinkingFastAndSlow",
                 title: "Thinking, Fast and Slow",
                 subTitle: "",
                 authors: ["Daniel Kahneman"],
-                rating: "",
-                reviews: [],
+                rating: "4.4",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1),
             BookData(
-                image: .talkingToStrangers,
+                imageName: "talkingToStrangers",
                 title: "Talking to Strangers",
                 subTitle: "",
                 authors: ["Malcolm Gladwell"],
-                rating: "",
-                reviews: [],
+                rating: "4.3",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1)
             ]))
         
@@ -72,36 +72,36 @@ class HomeViewController: UIViewController {
             title: "Popular titles that you could also enjoy",
             books: [
             BookData(
-                image: .unstressable,
+                imageName: "unstressable",
                 title: "Unstressable",
                 subTitle: "",
                 authors: ["Mo Gawdat", "Alice Law"],
-                rating: "",
-                reviews: [],
+                rating: "4.5",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1),
             BookData(
-                image: .liberatedLove,
+                imageName: "liberatedLove",
                 title: "Liberated Love",
-                subTitle: "",
+                subTitle: "Love - is love!",
                 authors: ["Mark Groves", "Kylie McBeath"],
-                rating: "",
-                reviews: [],
+                rating: "4.6",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1),
             BookData(
-                image: .kokoro,
+                imageName: "kokoro",
                 title: "Kokoro",
                 subTitle: "",
                 authors: ["Beth Kempton"],
-                rating: "",
-                reviews: [],
+                rating: "4.6",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1),
             BookData(
-                image: .threeSummers,
+                imageName: "threeSummers",
                 title: "Three Summers",
                 subTitle: "",
                 authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"],
-                rating: "",
-                reviews: [],
+                rating: "4.7",
+                reviews: ["Amazingly informative, unfitting reader"],
                 priceInCredits: 1)
             ]))
         
@@ -159,7 +159,7 @@ extension HomeViewController: UITableViewDelegate {
     private func presentDetailBook(_ book: BookData) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
         
-        viewController.bookData = book
+        viewController.viewModel = BookViewModel(bookData: book)
         
         viewController.modalPresentationStyle = .fullScreen
         

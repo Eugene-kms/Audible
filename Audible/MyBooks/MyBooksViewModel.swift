@@ -6,7 +6,7 @@ class MyBooksViewModel {
     
     var bookData: [BookData] = []
     
-    var didFetchBooks: () -> ()
+    var didFetchBooks: (() -> ())?
     
     init(repository: BookDataRepository = BookDataRepository(), didFetchBooks: @escaping (() -> ())) {
         self.repository = repository
@@ -16,12 +16,12 @@ class MyBooksViewModel {
     func fetchAudible() {
         Task {
             do {
-                let result = try await
-                self.repository.fetchBookData()
-                self.bookData = result
+               
+                let fetchedBookData = try await repository.fetchBookData()
+                self.bookData = fetchedBookData.sorted(by: { $0.title < $1.title})
                 
                 await MainActor.run {
-                    self.didFetchBooks()
+                    self.didFetchBooks?()
                 }
             } catch {
                 print(error)

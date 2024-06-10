@@ -1,17 +1,25 @@
 import UIKit
 
 struct BookData {
-    let image: UIImage
+    let imageName: String
     let title: String
     let subTitle: String
     let authors: [String]
     let rating: String
     var reviews: [String]
-    let isInLibraryMyBooks: Bool
+    var isInLibraryMyBooks: Bool
     let priceInCredits: Int
     
-    init(image: UIImage, title: String, subTitle: String, authors: [String], rating: String, reviews: [String], isInLibraryMyBooks: Bool = false, priceInCredits: Int) {
-        self.image = image
+    init(imageName: String, 
+         title: String,
+         subTitle: String,
+         authors: [String],
+         rating: String,
+         reviews: [String],
+         isInLibraryMyBooks: Bool = false,
+         priceInCredits: Int) {
+        
+        self.imageName = imageName
         self.title = title
         self.subTitle = subTitle
         self.authors = authors
