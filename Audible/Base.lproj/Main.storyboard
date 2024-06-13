@@ -153,10 +153,35 @@
                                     <constraint firstItem="wOL-87-8lR" firstAttribute="leading" secondItem="OfZ-Sz-8bY" secondAttribute="leading" id="sEu-aU-E5R"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-TQ-HAK">
+                                <rect key="frame" x="341" y="51" width="44" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOI-f2-X8r">
+                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Lji-8X-C1H"/>
+                                            <constraint firstAttribute="width" constant="28" id="du2-En-aNA"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="more"/>
+                                        <connections>
+                                            <action selector="moreButton:" destination="Vqm-aD-txA" eventType="touchUpInside" id="X8Y-NN-Ak4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="2m9-cr-mx0"/>
+                                    <constraint firstAttribute="height" constant="44" id="Dx3-IV-CPu"/>
+                                    <constraint firstItem="jOI-f2-X8r" firstAttribute="centerY" secondItem="EbV-TQ-HAK" secondAttribute="centerY" id="UGW-yM-IXc"/>
+                                    <constraint firstItem="jOI-f2-X8r" firstAttribute="centerX" secondItem="EbV-TQ-HAK" secondAttribute="centerX" id="sFt-Q6-r76"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M2u-pL-ACB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dBc-Ws-oTZ" firstAttribute="top" secondItem="EbV-TQ-HAK" secondAttribute="bottom" id="D9n-dl-AVj"/>
                             <constraint firstItem="wOL-87-8lR" firstAttribute="bottom" secondItem="M2u-pL-ACB" secondAttribute="bottom" id="H3p-he-b3J"/>
                             <constraint firstItem="OfZ-Sz-8bY" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" id="LYr-il-UxQ"/>
                             <constraint firstItem="dBc-Ws-oTZ" firstAttribute="top" secondItem="YGr-uG-3fG" secondAttribute="bottom" id="QtX-Og-j5g"/>
@@ -166,6 +191,7 @@
                             <constraint firstItem="YGr-uG-3fG" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" constant="8" id="fNj-qt-Ymy"/>
                             <constraint firstItem="dBc-Ws-oTZ" firstAttribute="leading" secondItem="M2u-pL-ACB" secondAttribute="leading" id="hJh-H4-vyP"/>
                             <constraint firstItem="OfZ-Sz-8bY" firstAttribute="trailing" secondItem="M2u-pL-ACB" secondAttribute="trailing" id="lfq-Kh-i7t"/>
+                            <constraint firstItem="M2u-pL-ACB" firstAttribute="trailing" secondItem="EbV-TQ-HAK" secondAttribute="trailing" constant="8" id="lkw-0q-KZ2"/>
                             <constraint firstAttribute="bottom" secondItem="OfZ-Sz-8bY" secondAttribute="bottom" id="ofx-QZ-9vY"/>
                         </constraints>
                     </view>
@@ -238,6 +264,7 @@
     </scenes>
     <resources>
         <image name="exit" width="28" height="28"/>
+        <image name="more" width="28" height="28"/>
         <image name="star.bubble.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

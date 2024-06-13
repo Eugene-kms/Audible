@@ -27,53 +27,92 @@ class BookDataRepository {
     
     typealias BookDataResponse = [String: BookDataDTO]
     
-    private let url = URL(string: "https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/audible.json")!
+    private lazy var booksUrl = baseUrl.appending(path: "audible.json")
+    
+    private let baseUrl = URL(string: "https://audible-9df36-default-rtdb.europe-west1.firebasedatabase.app/")!
+    
+    private lazy var decoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        return decoder
+    }()
+    
+    private lazy var encoder = {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .millisecondsSince1970
+        return encoder
+    }()
     
     func fetchBookData() async throws -> [BookData] {
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: booksUrl)
         
         let (data, _) = try await URLSession.shared.data(for: request)
         
-        let decoded = try JSONDecoder().decode(BookDataResponse.self, from: data)
+        let decoded = try decoder.decode(BookDataResponse.self, from: data)
         
         return toDomain(decoded)
     }
     
     func addBookToLibraryMyBooks(_ book: BookData) async throws {
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: booksUrl)
         request.httpMethod = "POST"
-        request.httpBody = try JSONEncoder().encode(book.toData)
+        request.httpBody = try encoder.encode(book.toData)
         
         let (data, _) = try await URLSession.shared.data(for: request)
         
-        let decoded = try JSONDecoder().decode(FirebasePostResponsDTO.self, from: data)
+        let decoded = try decoder.decode(FirebasePostResponsDTO.self, from: data)
         
         print("Successfully added \(book.title) to database with id \(decoded.name)")
+    }
+    
+    func postReview(_ review: String, to book: BookData) async throws {
+        var request = URLRequest(url: baseUrl.appending(path: "books/\(book.id)/reviews.json"))
+        request.httpMethod = "POST"
+        request.httpBody = try encoder.encode(BookDataDTO.ReviewDTO(createDate: Date(), content: review))
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let decoded = try decoder.decode(FirebasePostResponsDTO.self, from: data)
+        
+        print("Successfully posted review to book \(book.title) with review id \(decoded.name)")
     }
     
     private func toDomain(_ bookDataResponse: BookDataResponse) -> [BookData] {
         
         var result = [BookData]()
         
-        for (_, bookDataDTO) in bookDataResponse {
-            result.append(bookDataDTO.toDomain)
+        for (id, bookDataDTO) in bookDataResponse {
+            result.append(bookDataDTO.toDomain(with: id))
         }
         
         return result
     }
 }
 
+extension BookReview {
+    var toData: BookDataDTO.ReviewDTO {
+        BookDataDTO.ReviewDTO(createDate: createDate,
+                              content: content)
+    }
+}
+
 extension BookDataDTO {
     
-    var toDomain: BookData {
-        BookData(
+    func toDomain(with id: String) -> BookData {
+        
+        var reviews: [BookReview] = []
+        for (id, review) in self.reviews {
+            reviews.append(BookReview(id: id, createDate: review.createDate, content: review.content))
+        }
+        
+        return BookData(
+            id: id,
             imageName: image,
             title: title,
             subTitle: subtitle,
             authors: authors,
             rating: rating,
-            reviews: reviews,
+            reviews: reviews.sorted(by: { $0.createDate < $1.createDate }),
             isInLibraryMyBooks: true,
             priceInCredits: priceInCredits)
     }
@@ -82,7 +121,13 @@ extension BookDataDTO {
 extension BookData {
     
     var toData: BookDataDTO {
-        BookDataDTO(
+        
+        var reviews: [String: BookDataDTO.ReviewDTO] = [:]
+        for review in self.reviews {
+            reviews[review.id] = review.toData
+        }
+        
+        return BookDataDTO(
             title: title,
             subtitle: subTitle,
             authors: authors,

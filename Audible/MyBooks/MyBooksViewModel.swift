@@ -16,7 +16,6 @@ class MyBooksViewModel {
     func fetchAudible() {
         Task {
             do {
-               
                 let fetchedBookData = try await repository.fetchBookData()
                 self.bookData = fetchedBookData.sorted(by: { $0.title < $1.title})
                 

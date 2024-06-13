@@ -16,6 +16,8 @@ class BookViewModel {
         self.repository = repository
     }
     
+    func isNewItemValid(text: String) -> Bool { !text.isEmpty  }
+    
     func purchaseBook() {
         guard !bookData.isInLibraryMyBooks else { return }
         
@@ -29,7 +31,19 @@ class BookViewModel {
             }
         }
     }
-
+    
+    func postReview(with content: String) {
+        guard isNewItemValid(text: content) else { return }
+        bookData.reviews.append(.init(content: content))
+        
+        Task {
+            do {
+                try await repository.postReview(content, to: bookData)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
 //class for all screen of books and reviews
@@ -58,6 +72,11 @@ class BookViewController: UIViewController {
         configurePostReviewField(with: viewModel.bookData)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presentingViewController?.viewWillAppear(animated)
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -72,12 +91,7 @@ class BookViewController: UIViewController {
     }
     
     @objc private func didChangeText() {
-        setPostReviewButton(enabled: isNewItemValid)
-    }
-    
-    private var isNewItemValid: Bool {
-        guard let text = textField.text else { return false }
-        return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        setPostReviewButton(enabled: viewModel.isNewItemValid(text: textField.text ?? ""))
     }
     
     private func configurePostReviewView() {
@@ -90,7 +104,9 @@ class BookViewController: UIViewController {
     }
     
     private func configurePostReviewField(with book: BookData) {
-        postReviewView.isHidden = book.isInLibraryMyBooks
+        let userCanAddReview = book.isInLibraryMyBooks
+        postReviewView.isHidden = userCanAddReview == false
+        print("Post review view \(userCanAddReview == false)!!!")
     }
     
     func configureKeyboard() {
@@ -131,6 +147,7 @@ class BookViewController: UIViewController {
             self.postButton.alpha = isKeyboardPresent ? 1 : 0
             self.view.layoutIfNeeded()
         } completion: { _ in
+            guard !self.viewModel.bookData.reviews.isEmpty else { return }
             self.tableView.scrollToRow(at: IndexPath(row: self.viewModel.bookData.reviews.count - 1, section: BookViewSection.reviews.rawValue), at: .bottom, animated: true)
         }
     }
@@ -147,10 +164,15 @@ class BookViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func postButtonTapped(_ sender: Any) {
-        guard isNewItemValid, let text = textField.text else { return }
+    @IBAction func moreButton(_ sender: Any) {
         
-        viewModel.bookData.reviews.append(text)
+    }
+    
+    
+    @IBAction func postButtonTapped(_ sender: Any) {
+        guard let text = textField.text else { return }
+        
+        viewModel.postReview(with: text)
         
         let indexPath = IndexPath(row: viewModel.bookData.reviews.count - 1, section: BookViewSection.reviews.rawValue)
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -199,7 +221,7 @@ extension BookViewController: UITableViewDataSource {
             
             let review = viewModel.bookData.reviews[indexPath.row]
             
-            cell.configure(with: review)
+            cell.configure(with: review.content)
             
             return cell
         }

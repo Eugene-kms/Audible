@@ -9,8 +9,6 @@ class MyBooksViewController: UIViewController {
         didFetchBooks:
             { [weak self] in
                 self?.tableView.reloadData()
-                
-                print("Did fetch Books!!!")
             })
     
     override func viewDidLoad() {

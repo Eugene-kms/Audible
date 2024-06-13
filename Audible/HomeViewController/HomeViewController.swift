@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
                 subTitle: "How We Learn as it's meant to be heard",
                 authors: ["Stanislas Dehaene"],
                 rating: "4.6",
-                reviews: ["Amazingly informative, unfitting reader", "In-depth sleep analysis that fails to grasp", "A must read if you want to live longer", "That Narrator!!!", "An eye-opener", "We don't sleep enough. Here's how.", "Un libro genial"],
+                reviews: [],
                 priceInCredits: 1),
             BookData(
                 imageName: "thinkingFastAndSlow",
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Daniel Kahneman"],
                 rating: "4.4",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1),
             BookData(
                 imageName: "talkingToStrangers",
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Malcolm Gladwell"],
                 rating: "4.3",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1)
             ]))
         
@@ -77,7 +77,7 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Mo Gawdat", "Alice Law"],
                 rating: "4.5",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1),
             BookData(
                 imageName: "liberatedLove",
@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
                 subTitle: "Love - is love!",
                 authors: ["Mark Groves", "Kylie McBeath"],
                 rating: "4.6",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1),
             BookData(
                 imageName: "kokoro",
@@ -93,7 +93,7 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Beth Kempton"],
                 rating: "4.6",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1),
             BookData(
                 imageName: "threeSummers",
@@ -101,7 +101,7 @@ class HomeViewController: UIViewController {
                 subTitle: "",
                 authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"],
                 rating: "4.7",
-                reviews: ["Amazingly informative, unfitting reader"],
+                reviews: [],
                 priceInCredits: 1)
             ]))
         
@@ -112,7 +112,6 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "HomeGreetingCell", bundle: nil), forCellReuseIdentifier: "HomeGreetingCell")
-        
         tableView.register(UINib(nibName: "HomeBooksCell", bundle: nil), forCellReuseIdentifier: "HomeBooksCell")
     }
     
@@ -159,10 +158,32 @@ extension HomeViewController: UITableViewDelegate {
     private func presentDetailBook(_ book: BookData) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
         
-        viewController.viewModel = BookViewModel(bookData: book)
-        
         viewController.modalPresentationStyle = .fullScreen
         
-        present(viewController, animated: true)
+        Task {
+            do {
+                let repository = BookDataRepository()
+                
+                let result = try await repository.fetchBookData()
+                
+                let bookIsInLibrary = result.contains { element in
+                    element.title == book.title
+                }
+                var edittedBook = book
+                edittedBook.isInLibraryMyBooks = bookIsInLibrary
+                
+                Task { @MainActor in
+                    viewController.viewModel = BookViewModel(bookData: edittedBook)
+                    
+                    present(viewController, animated: true)
+                    
+                    print("Test - \(edittedBook.isInLibraryMyBooks)")
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        
     }
 }
