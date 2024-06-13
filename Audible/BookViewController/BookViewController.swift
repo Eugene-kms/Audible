@@ -228,9 +228,26 @@ extension BookViewController: UITableViewDataSource {
     }
     
     private func didTapPurchaseButton() {
+        let credits = CreditFormatter().string(for: viewModel.bookData.priceInCredits)
+        let prompt = UIAlertController(
+            title: "Please confirm purchase",
+            message: "\(credits) will be used for this purchase",
+            preferredStyle: .alert)
+        
+        prompt.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        prompt.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak self] _ in
+            self?.didConfirmPurchase()
+        }))
+        
+        self.present(prompt, animated: true)
+    }
+    
+    private func didConfirmPurchase() {
         viewModel.purchaseBook()
         configurePostReviewField(with: viewModel.bookData)
         tableView.reloadData()
+        
+        
     }
 }
 

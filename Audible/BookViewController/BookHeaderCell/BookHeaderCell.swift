@@ -43,11 +43,7 @@ class BookHeaderCell: UITableViewCell {
     }
     
     private func configurePurchaseButtonTitle(with credits: Int) -> String {
-        if credits <= 1 {
-            return "Purchase (\(credits) credit)"
-        } else {
-            return "Purchase (\(credits) credits)"
-        }
+        return "Purchase (\(CreditFormatter().string(for: credits))) "
     }
     
     @IBAction func didTapPlayButton(_ sender: Any) {
@@ -55,5 +51,14 @@ class BookHeaderCell: UITableViewCell {
         
         didTapPurchase?()
     }
-    
+}
+
+struct CreditFormatter {
+    func string(for credits: Int) -> String {
+        if credits <= 1 {
+            return "\(credits) credit"
+        } else {
+            return "\(credits) credits"
+        }
+    }
 }
