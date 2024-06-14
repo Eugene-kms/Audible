@@ -158,32 +158,34 @@ extension HomeViewController: UITableViewDelegate {
     private func presentDetailBook(_ book: BookData) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
         
+//        viewController.modalPresentationStyle = .fullScreen
+//        
+//        Task {
+//            do {
+//                let repository = BookDataRepository()
+//                
+//                let result = try await repository.fetchBookData()
+//                
+//                let bookIsInLibrary = result.contains { element in
+//                    element.title == book.title
+//                }
+//                var edittedBook = book
+//                edittedBook.isInLibraryMyBooks = bookIsInLibrary
+//                
+//                Task { @MainActor in
+//                    viewController.viewModel = BookViewModel(bookData: edittedBook)
+//                    
+//                    present(viewController, animated: true)
+//                    
+//                    print("Test - \(edittedBook.isInLibraryMyBooks)")
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+        
+        viewController.viewModel = BookViewModel(bookData: book)
         viewController.modalPresentationStyle = .fullScreen
-        
-        Task {
-            do {
-                let repository = BookDataRepository()
-                
-                let result = try await repository.fetchBookData()
-                
-                let bookIsInLibrary = result.contains { element in
-                    element.title == book.title
-                }
-                var edittedBook = book
-                edittedBook.isInLibraryMyBooks = bookIsInLibrary
-                
-                Task { @MainActor in
-                    viewController.viewModel = BookViewModel(bookData: edittedBook)
-                    
-                    present(viewController, animated: true)
-                    
-                    print("Test - \(edittedBook.isInLibraryMyBooks)")
-                }
-            } catch {
-                print(error)
-            }
-        }
-        
-        
+        present(viewController, animated: true)
     }
 }

@@ -32,6 +32,7 @@
 		445F48CD2C14BB3000E81277 /* BookDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F48CC2C14BB3000E81277 /* BookDataDTO.swift */; };
 		4482B0F72BFA52DF00FF84DE /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482B0F62BFA52DF00FF84DE /* UIColor+Hex.swift */; };
 		44B6AAE52C079A9700C10CFE /* BookDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B6AAE42C079A9700C10CFE /* BookDataRepository.swift */; };
+		44FEBB6B2C1C513B00562409 /* CreditFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEBB6A2C1C513B00562409 /* CreditFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		445F48CC2C14BB3000E81277 /* BookDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataDTO.swift; sourceTree = "<group>"; };
 		4482B0F62BFA52DF00FF84DE /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		44B6AAE42C079A9700C10CFE /* BookDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataRepository.swift; sourceTree = "<group>"; };
+		44FEBB6A2C1C513B00562409 /* CreditFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4482B0F62BFA52DF00FF84DE /* UIColor+Hex.swift */,
+				44FEBB6A2C1C513B00562409 /* CreditFormatter.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				445DEBB52BF5266D000D596C /* BookData.swift in Sources */,
 				445DEBB92BF53C74000D596C /* ShowBookCell.swift in Sources */,
 				444146A82BE37A8900CD0C71 /* AppDelegate.swift in Sources */,
+				44FEBB6B2C1C513B00562409 /* CreditFormatter.swift in Sources */,
 				444146BE2BE37F6600CD0C71 /* BookViewController.swift in Sources */,
 				444146D12BE4FDA200CD0C71 /* BookReviewCell.swift in Sources */,
 				444146C72BE4E34600CD0C71 /* BookCell.swift in Sources */,

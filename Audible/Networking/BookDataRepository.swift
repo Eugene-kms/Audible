@@ -67,7 +67,7 @@ class BookDataRepository {
     }
     
     func postReview(_ review: String, to book: BookData) async throws {
-        var request = URLRequest(url: baseUrl.appending(path: "books/\(book.id)/reviews.json"))
+        var request = URLRequest(url: baseUrl.appending(path: "audible/\(book.id)/reviews.json"))
         request.httpMethod = "POST"
         request.httpBody = try encoder.encode(BookDataDTO.ReviewDTO(createDate: Date(), content: review))
         
@@ -75,6 +75,17 @@ class BookDataRepository {
         let decoded = try decoder.decode(FirebasePostResponsDTO.self, from: data)
         
         print("Successfully posted review to book \(book.title) with review id \(decoded.name)")
+    }
+    
+    func deleteBook(_ book: BookData) async throws {
+        var request = URLRequest(url: baseUrl
+            .appending(path: "audible/\(book.id).json"))
+        
+        request.httpMethod = "DELETE"
+        
+        let _ = try await URLSession.shared.data(for: request)
+        
+        print("Successfully deleted book with id \(book.id)")
     }
     
     private func toDomain(_ bookDataResponse: BookDataResponse) -> [BookData] {

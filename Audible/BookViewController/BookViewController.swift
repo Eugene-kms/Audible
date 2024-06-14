@@ -44,6 +44,16 @@ class BookViewModel {
             }
         }
     }
+    
+    func deleteBook() {
+        Task {
+            do {
+                try await repository.deleteBook(bookData)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
 //class for all screen of books and reviews
@@ -104,9 +114,10 @@ class BookViewController: UIViewController {
     }
     
     private func configurePostReviewField(with book: BookData) {
-        let userCanAddReview = book.isInLibraryMyBooks
-        postReviewView.isHidden = userCanAddReview == false
-        print("Post review view \(userCanAddReview == false)!!!")
+        postReviewView.isHidden = !book.isInLibraryMyBooks
+//        let userCanAddReview = book.isInLibraryMyBooks
+//        postReviewView.isHidden = userCanAddReview == false
+//        print("Post review view \(userCanAddReview == false)!!!")
     }
     
     func configureKeyboard() {
@@ -165,7 +176,48 @@ class BookViewController: UIViewController {
     }
     
     @IBAction func moreButton(_ sender: Any) {
+        let prompt = UIAlertController(
+            title: "More Actions",
+            message: "What do you want to do?",
+            preferredStyle: .actionSheet)
         
+        prompt.addAction(UIAlertAction(
+            title: "Remove from library",
+            style: .destructive,
+            handler: { [weak self] _ in
+                self?.presentDeletePrompt()
+            }))
+        
+        prompt.addAction(UIAlertAction(
+            title: "Cancle",
+            style: .cancel))
+        self.present(prompt, animated: true)
+        
+    }
+    
+    private func presentDeletePrompt() {
+        let alert = UIAlertController(
+            title: "Are you sure?",
+            message: "Removing the book from your library will hide it from your My Books list.",
+            preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel))
+        
+        alert.addAction(UIAlertAction(
+            title: "Delete",
+            style: .destructive,
+            handler: { [weak self] _ in
+                self?.didConfirmBookRemoval()
+            }))
+        
+        self.present(alert, animated: true )
+    }
+    
+    private func didConfirmBookRemoval() {
+        viewModel.deleteBook()
+        self.dismiss(animated: true)
     }
     
     
@@ -228,7 +280,7 @@ extension BookViewController: UITableViewDataSource {
     }
     
     private func didTapPurchaseButton() {
-        let credits = CreditFormatter().string(for: viewModel.bookData.priceInCredits)
+        let credits = CreditFormatter().string(for: viewModel.bookData.priceInCredits )
         let prompt = UIAlertController(
             title: "Please confirm purchase",
             message: "\(credits) will be used for this purchase",
