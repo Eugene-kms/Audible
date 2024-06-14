@@ -11,7 +11,7 @@ class BookViewModel {
     
     private let repository: BookDataRepository
     
-    init(bookData: BookData, repository: BookDataRepository = BookDataRepository()) {
+    init(bookData: BookData, repository: BookDataRepository = BookDataRepositoryLive()) {
         self.bookData = bookData
         self.repository = repository
     }

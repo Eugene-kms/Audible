@@ -8,7 +8,7 @@ class MyBooksViewModel {
     
     var didFetchBooks: (() -> ())?
     
-    init(repository: BookDataRepository = BookDataRepository(), didFetchBooks: @escaping (() -> ())) {
+    init(repository: BookDataRepository = BookDataRepositoryLive(), didFetchBooks: @escaping (() -> ())) {
         self.repository = repository
         self.didFetchBooks = didFetchBooks
     }
