@@ -15,6 +15,10 @@ class MyBooksViewController: UIViewController {
         super.viewDidLoad()
         
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         viewModel.fetchAudible()
     }
